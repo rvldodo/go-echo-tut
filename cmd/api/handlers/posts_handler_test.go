@@ -12,7 +12,7 @@ type EndToEndSuite struct {
 	suite.Suite
 }
 
-func TestEndToEndSuite(t *testing.T) {
+func TestEndToEndSuuite(t *testing.T) {
 	suite.Run(t, new(EndToEndSuite))
 }
 
@@ -24,7 +24,7 @@ func (s *EndToEndSuite) TestPostHandler() {
 
 func (s *EndToEndSuite) TestPostNoResult() {
 	c := http.Client{}
-	r, _ := c.Get("http://localhost:3000/post")
+	r, _ := c.Get("http://localhost:3000/post/5334")
 	s.Equal(http.StatusOK, r.StatusCode)
 	b, _ := ioutil.ReadAll(r.Body)
 	s.JSONEq(`{"status": "ok", "data": []}`, string(b))
